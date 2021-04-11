@@ -24,4 +24,6 @@ for i, tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
 # Creating a dataframe from the tweets list above
 tweets_df2 = pd.DataFrame(tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'Location'])
 print(tweets_df2)
-tweets_df2.to_csv(r'C:\Users\admin\Desktop\Projects\file_name.csv')
+print("Exporting it to scraped_data.csv...")
+tweets_df2.to_csv(r'C:\Users\admin\Desktop\Projects\scraped_data.csv')
+print("Exported to scraped_data.csv successfully! (File location: C:\Users\admin\Desktop\Projects\scraped_data.csv)")
