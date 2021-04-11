@@ -14,6 +14,7 @@ t2 = int(input("Do you want to specify a location? (Enter 1 for yes and 0 for no
 if t2==1:
     location = input("Enter location: ")
     query = query+"location:"+location
+# print(query)
 
 for i, tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
     if i>num:
@@ -25,4 +26,4 @@ tweets_df2 = pd.DataFrame(tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 
 print(tweets_df2)
 print("Exporting it to scraped_data.csv...")
 tweets_df2.to_csv(r'C:\Users\admin\Desktop\Projects\scraped_data.csv')
-print("Exported to scraped_data.csv successfully! (File location: C:\Users\admin\Desktop\Projects\scraped_data.csv)")
+print("Exported to scraped_data.csv successfully!")
