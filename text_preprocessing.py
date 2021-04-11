@@ -17,4 +17,5 @@ for i in range(len(X)):
     tweet=[stemmer.stem(word) for word in tweet if (word not in stop_words) and (word not in punct)]
     tweet=' '.join(tweet)
     cleaned_data.append(tweet)
-print(cleaned_data)
+for i in range(len(cleaned_data)):
+    print(cleaned_data[i])
