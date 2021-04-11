@@ -14,7 +14,6 @@ t2 = int(input("Do you want to specify a location? (Enter 1 for yes and 0 for no
 if t2==1:
     location = input("Enter location: ")
     query = query+"location:"+location
-# print(query)
 
 for i, tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
     if i>num:
