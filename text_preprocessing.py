@@ -1,29 +1,27 @@
-import snscrape.modules.twitter as sntwitter
+import re
+from nltk.stem import PorterStemmer
+import string
+from nltk.corpus import stopwords
 import pandas as pd
+import nltk
+tweets = pd.read_csv(r'C:\Users\admin\Desktop\Projects\scraped_data.csv')
+X=tweets['Text']
+nltk.download('stopwords')
+stop_words=stopwords.words('english')
+punct=string.punctuation
+stemmer=PorterStemmer()
+cleaned_data=[]
+for i in range(len(X)):
+    tweet=re.sub('[^a-zA-Z]', ' ', X.iloc[i])
+    tweet=tweet.lower().split()
+    tweet=[stemmer.stem(word) for word in tweet if (word not in stop_words) and (word not in punct)]
+    tweet=' '.join(tweet)
+    cleaned_data.append(tweet)
+for i in range (len(cleaned_data)):
+    print(cleaned_data[i])
 
-tweets_list = []
-keyword = input("Enter the hit word: ")
-num = int(input("Enter the number of tweets to be analysed: "))
-query = keyword+" "+"lang:en"
-t1 = int(input("Do you want to specify a date range? (Enter 1 for yes and 0 for no): "))
-if t1==1:
-    since = input("Starting date (YYYY-MM-DD): ")
-    to = input ("Ending date (YYYY-MM-DD): ")
-    query = query+" since:"+since+"to:"+to
-t2 = int(input("Do you want to specify a location? (Enter 1 for yes and 0 for no): "))
-if t2==1:
-    location = input("Enter location: ")
-    query = query+"location:"+location
-# print(query)
-
-for i, tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
-    if i>num:
-        break
-    tweets_list.append([tweet.date, tweet.id, tweet.content, tweet.user.username, tweet.user.location])
-
-# Creating a dataframe from the tweets list above
-tweets_df2 = pd.DataFrame(tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'Location'])
-print(tweets_df2)
-print("Exporting it to scraped_data.csv...")
-tweets_df2.to_csv(r'C:\Users\admin\Desktop\Projects\scraped_data.csv')
-print("Exported to scraped_data.csv successfully!")
+# Creating a dataframe from the cleaned list above
+print("Exporting it to cleaned_data.csv...")
+cleaned_data2 = pd.DataFrame(cleaned_data)
+cleaned_data2.to_csv(r'C:\Users\admin\Desktop\Projects\cleaned_data.csv')
+print("Exported to cleaned_data.csv successfully!")
