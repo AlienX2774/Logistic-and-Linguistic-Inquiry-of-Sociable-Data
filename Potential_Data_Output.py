@@ -4,7 +4,6 @@ import nltk
 from pprint import pprint
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.text import Text
-#import spacy
 import re
 from nltk.stem import PorterStemmer
 import string
@@ -14,7 +13,6 @@ import numpy as nump
 
 
 def text_to_tokens(text_seqs):
-    # token_seqs = [[word.lower_ for word in encoder(text_seq)] for text_seq in text_seqs]
     token_seqs = []
     for i in text_seqs:
       x = i.lower().split()
