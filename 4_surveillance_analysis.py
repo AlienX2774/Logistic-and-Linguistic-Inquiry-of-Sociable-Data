@@ -72,15 +72,15 @@ nonthreatlist=[]
 tweets = pd.read_csv(r'E:\VIT\Semester-4\CSE4022 (NLP)\Project\Codes\Dataset\negative_data.csv')
 X=tweets['0']
 
-for i in range (len(X)):
+for z in range (len(X)):
     sent3=X[i]
 
     filtered_sent1 = []
     filtered_sent2 = []
     filtered_sent3 = []
 
-    counter1 = 0
-    counter2 = 0
+    #counter1 = 0
+    #counter2 = 0
     sent31_similarity = 0
     sent32_similarity = 0
 
@@ -91,11 +91,11 @@ for i in range (len(X)):
     for i in filtered_sent3:
 
         for j in filtered_sent1:
-            counter1 = counter1 + 1
+            #counter1 = counter1 + 1
             sent31_similarity = sent31_similarity + simlilarityCheck(i, j)
 
         for j in filtered_sent2:
-            counter2 = counter2 + 1
+            #counter2 = counter2 + 1
             sent32_similarity = sent32_similarity + simlilarityCheck(i, j)
 
     filtered_sent1 = []
