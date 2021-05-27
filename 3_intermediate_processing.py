@@ -26,12 +26,14 @@ p_file = pd.read_csv(r'E:\VIT\Semester-4\CSE4022 (NLP)\Project\Codes\Dataset\pos
 pX = p_file['0']
 p_cleaned = data_processing(pX)
 p_cleaned2 = pd.DataFrame(p_cleaned)
-p_cleaned2.to_csv(r'E:\VIT\Semester-4\CSE4022 (NLP)\Project\Codes\Dataset\pos_cleaned_data.csv')
-print("Exported to pos_cleaned_data.csv successfully!")
+
 
 n_file = pd.read_csv(r'E:\VIT\Semester-4\CSE4022 (NLP)\Project\Codes\Dataset\negative_data.csv')
 nX = n_file['0']
 n_cleaned = data_processing(nX)
 n_cleaned2 = pd.DataFrame(n_cleaned)
+
+p_cleaned2.to_csv(r'E:\VIT\Semester-4\CSE4022 (NLP)\Project\Codes\Dataset\pos_cleaned_data.csv')
+print("Exported to pos_cleaned_data.csv successfully!")
 n_cleaned2.to_csv(r'E:\VIT\Semester-4\CSE4022 (NLP)\Project\Codes\Dataset\neg_cleaned_data.csv')
 print("Exported to neg_cleaned_data.csv successfully!")
