@@ -85,7 +85,7 @@ nc_2019=0
 nc_2020=0
 nc_2021=0
 for i in pos_date:
-    if i.startswith("2014"):
+    if i.startswith("2014"): 
         pc_2014 = pc_2014+1
     elif i.startswith("2015"):
         pc_2015 = pc_2015+1
@@ -123,8 +123,11 @@ p_allcounts = [pc_2014, pc_2015, pc_2016, pc_2017, pc_2018, pc_2019, pc_2020, pc
 n_allcounts =[nc_2014, nc_2015, nc_2016, nc_2017, nc_2018, nc_2019, nc_2020, nc_2021]
 years = ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"]
 plt.subplot(2,2,3)
+plt.title("Positive opinions")
 plt.plot(years, p_allcounts)
+
 plt.subplot(2,2,4)
+plt.title("Negative opinions")
 plt.plot(years, n_allcounts)
 
 
